@@ -8,15 +8,26 @@ import commit from "./controllers/commit.js";
 
 
 yargs(process.argv.slice(2))
+  .command("start", "Starts a new Server ",{}, startServer )
   .command("init", "Initialise a new repository",{}, initRepo )
   .command("add <file>" ,"Add a file to the repository",yargs=>{yargs.positional("file",{
            describe:"File to add to the staging area",
            type:"string",});
         },(argv)=>{add(argv.file);})
-  .command("commit<message>","Commit the stage file",yargs=>{yargs.positional("message",{
-           describe:"Commit Message",
-           type:"string"  });
-        },commit)     
+  .command(
+    "commit <message>",
+    "Commit the staged files",
+    (yargs) => {
+      yargs.positional("message", {
+        describe: "Commit message",
+        type: "string",
+      });
+    },
+    (argv) => {
+      commit(argv.message);
+    }
+  )
+      
    .command("push","Push commits to S3",{},push)   
    .command("pull","Pull commits from S3",{},pull)  
    .command("revert<commitID>","Revert to a specific commit",yargs=>{yargs.positional("commitID",{
@@ -26,3 +37,8 @@ yargs(process.argv.slice(2))
   .demandCommand(1)
   .help()
   .parse();
+
+
+  function startServer(){
+    console.log("Server logic called");
+  }
