@@ -33,10 +33,19 @@ yargs(process.argv.slice(2))
       
    .command("push","Push commits to S3",{},push)   
    .command("pull","Pull commits from S3",{},pull)  
-   .command("revert<commitID>","Revert to a specific commit",yargs=>{yargs.positional("commitID",{
-           describe:"Commit ID to revert to",
-           type:"string"});
-        },revert)
+   .command(
+   "revert <commitID>",
+   "Revert to a specific commit",
+   (yargs) => {
+    yargs.positional("commitID", {
+      describe: "Commit ID to revert to",
+      type: "string",
+    });
+  },
+  (argv) => {
+    revert(argv.commitID);
+  }
+)
   .demandCommand(1)
   .help()
   .parse();
