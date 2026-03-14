@@ -1,33 +1,33 @@
 const createRepository=(req,res)=>{
-    console.log("Repository Created !");
+    res.send("Repository Created !");
  };
 const getAllRepositories=(req,res)=>{
-    console.log("All respositories fetched !");
+    res.send("All respositories fetched !");
  };
 
 const fetchRepositoryById=(req,res)=>{
-    console.log("Repository Details Fetched !");
+    res.send("Repository Details Fetched !");
  };
 
 const fetchRepositoryName=(req,res)=>{
-    console.log("All respositories fetched !");
+    res.send("All respositories fetched !");
  }; 
 
  const fetchRepositoriesForCurrentUser=(req,res)=>{
-    console.log("Respositories for logged in user fetched !");
+    res.send("Respositories for logged in user fetched !");
  } ;
 
  const updateRepositoryById=(req,res)=>{
-    console.log("Respository updated !");
+    res.send("Respository updated !");
  };
 
  const toggleVisibilityById=(req,res)=>{
-    console.log("Visibility toggled !");
+    res.send("Visibility toggled !");
  };
  
  
  const deleteRepositoryById=(req,res)=>{
-    console.log("Respository deleted !");
+    res.send("Respository deleted !");
  };
  
  

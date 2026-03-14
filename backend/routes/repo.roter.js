@@ -1,5 +1,5 @@
 import express from "express";
-import repoController from "../controllers/repoController";
+import repoController from "../controllers/repoController.js";
 
 const repoRouter=express.Router();
 

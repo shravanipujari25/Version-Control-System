@@ -13,15 +13,15 @@ async function revert(commitID) {
 
         const files = await fs.readdir(commitDir);
 
-        for (const file of files) {
+    for (const file of files) {
 
-            if (file === "commit.json") continue; // skip metadata
+    if (file === "commit.json") continue;
 
-            const sourcePath = path.join(commitDir, file);
-            const destinationPath = path.join(process.cwd(), file);
+    const sourcePath = path.join(commitDir, file);
+    const destinationPath = path.join(process.cwd(), file);
 
-            await fs.copyFile(sourcePath, destinationPath);
-        }
+    await fs.copyFile(sourcePath, destinationPath);
+}
 
         console.log(`Reverted to commit ${commitID}`);
 
